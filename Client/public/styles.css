@@ -1,0 +1,295 @@
+*{
+	font-family: 'Architects Daughter',cursive;
+}
+.titleContainer{
+	color:white;
+	background-color:#f3c623;
+	width:100%;
+	padding-bottom:5%;
+	box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.75);	
+	position:relative;
+
+}
+
+body{
+	margin:0;
+	/*background-color:#263859;*/
+	overflow-x:hidden;
+	background-color: #0984e3;
+}
+
+.header{
+	font-size:1.5em;
+	margin:0;
+	margin-left:2%;
+	font-family: 'Architects Daughter', cursive;
+	position:absolute;
+	top:15%;
+}
+
+.promptContainer{
+	background-color:white;
+	display:flex;
+	flex-direction:column;
+
+}
+
+.promptContent,.promptTitle{
+	border:none;
+}
+
+.promptContent{
+	margin-top:3%;
+	font-size:20px;
+}
+
+.promptTitle{
+	font-size:24px;
+}
+
+.fullPrompt{
+	padding:2% 2%;
+	left:32%;
+	border-radius:10px;
+	width:36%;
+	position:absolute;
+	background-color:white;
+	top:20%;
+	border:4px solid yellow;
+	margin:3px;
+}
+
+
+.copyright{
+	position:relative;
+	bottom:2%;
+	color:white;
+	margin-left:42%;
+	}
+
+.noteContainer{
+	width:20%;
+	background-color:black;
+	border-radius:10px;
+	border:5px solid yellow;
+	padding:2%;
+	margin-top:2%;
+	color:white;
+	overflow-wrap: break-word;
+	transition:0.3s ease-in;
+
+}
+
+textarea{
+	resize:none;
+}
+
+.allNotes{
+	display:flex;
+	flex-flow:row wrap;	
+	position:relative;
+	margin-top:20%;
+	justify-content:space-between;
+	transition:opacity 1.5s;
+}
+
+hr{
+	margin:0;
+}
+
+.delButton{
+	border-radius:50%;
+	position:relative;
+	background-color:white;
+	border:none;
+}
+
+.delButton:hover{
+	background-color:#f3c623;
+}
+
+.delButton:active,.delButton:focus{
+	background-color:red;
+}
+
+
+button{
+	cursor:pointer;
+}
+
+
+/*Loading Spinner Styling*/
+.loader {
+	font-size: 10px;
+	margin: 50px auto;
+	text-indent: -9999em;
+	width: 11em;
+	height: 11em;
+	border-radius: 50%;
+	background: #ffffff;
+	background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+	background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+	background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+	background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+	background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+	position: relative;
+	-webkit-animation: load3 1.4s infinite linear;
+	animation: load3 1.4s infinite linear;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+	.loader:before {
+		width: 50%;
+		height: 50%;
+		background: #ffffff;
+		border-radius: 100% 0 0 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+	}
+
+	.loader:after {
+		background: #0984e3;
+		width: 75%;
+		height: 75%;
+		border-radius: 50%;
+		content: '';
+		margin: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+
+@-webkit-keyframes load3 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes load3 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+/*Optimizing design for various screen sizes*/
+
+@media screen and (min-width:320px){
+	*{
+		overflow-x:hidden;
+	}
+	
+	html, body {
+		margin: 0;
+	}
+
+	body{
+		height:100vh;
+	}
+
+	.copyright{
+		position:relative;
+		top:15vh;
+		width:70vw;
+		display:inline-block;
+		font-size:1em;
+		right:30%;
+		text-align:center;
+	}
+
+	.titleContainer{
+		position:fixed;
+		height:6%;
+		z-index:100;
+	}
+
+	.allNotes{
+		position:relative;
+		display:flex;
+		flex-flow:column;
+		top:75px;
+		left:4%;
+		margin-top:8vh;
+		margin-right:1%;
+		margin-left:1%;
+		font-size:1em;
+	
+	}
+
+	.fullPrompt{
+		position:relative;
+		top:15%;
+		width:80vw;
+		left:6%;
+	}
+
+	.noteContainer{
+		width:80vw;
+		margin-bottom:2%;
+	}
+
+/*.delButton{
+	position:relative;
+	bottom:8%;
+}*/
+
+	}
+
+@media screen and (min-width:700px){
+	.allNotes {
+		position: relative;
+		display: flex;
+		left:0;
+		flex-flow: row wrap;
+		justify-content:space-between;
+		margin-top: 8vh;
+	}
+
+	.noteContainer{
+		height:40vh;
+		flex-basis:25%;
+	}
+
+	.fullPrompt{
+		top:17%;
+		left:7%;
+	}
+
+}
+
+@media screen and (min-width:800px){
+	.fullPrompt{
+		top:15vh;
+	}
+}
+
+@media screen and (min-width:600px){
+	.titleContainer{
+		height:4%;
+	}
+}
+
+@media screen and (min-width:900px) {
+	.titleContainer {
+		height: 1%;
+	}
+}
+
+
