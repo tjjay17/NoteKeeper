@@ -5,7 +5,6 @@ import axios from 'axios';
 
 
 function NotePrompt(props){
-	
 	const [fullNote, updateContent] = useState({
 		title: '',
 		content: ''
@@ -38,7 +37,6 @@ function NotePrompt(props){
 
 	function addNote(event){
 		if (fullNote.title !== '' && fullNote.content !== ''){
-			
 			axios.post('https://floating-inlet-07437.herokuapp.com/createOrUpdate',
 				{
 					_id: fullNote.title,
@@ -46,26 +44,22 @@ function NotePrompt(props){
 					content: fullNote.content
 				}
 			)
-				.then(response => {
-					axios.get('https://floating-inlet-07437.herokuapp.com/allNotes')
-						.then(res => props.updater(res.data))
-						.catch(err => console.log(err));
-					return response;
-				})
-				.catch(err => console.log(err));
+			.then(response => {
+				axios.get('https://floating-inlet-07437.herokuapp.com/allNotes')
+					.then(res => props.updater(res.data))
+					.catch(err => console.log(err));
+				return response;
+			})
+			.catch(err => console.log(err));
 			
 			updateContent({ title: '', content: '' });
 			titlePointer.current.focus();
-
-		  //Need to replace with useRef
 		  document.querySelector('.bottom').scrollIntoView({behavior:"smooth"});
 		}
 	}
 
 	return (
-	
 			<div className = 'fullPrompt'>
-	
 				<div className = 'promptContainer'>
 					<input ref={titlePointer} onChange = {handleChange} name = 'title' className = 'promptTitle' type = 'text' placeholder = 'Title' value = {fullNote.title} />
 					<textarea onChange = {handleChange} name = 'content' className = 'promptContent' placeholder = 'Note' value = {fullNote.content} />
@@ -76,10 +70,8 @@ function NotePrompt(props){
 						<NoteAddIcon />
 					</Fab>
 				</div>
-
 			</div>
-	)
+	);
 }
-
 export default NotePrompt;
 

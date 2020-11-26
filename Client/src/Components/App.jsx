@@ -11,11 +11,9 @@ import Spinner from './Spinner';
 function App() {
 	//useSpring way to set up animation
 	const props = useSpring({ opacity: 1, from: { opacity: 0 } });
-
 	const [notes, updateNotes] = useState([]);
 	const [loading, updateLoading] = useState(false);
 	
-
 	useEffect(() => {
 		axios.get('https://floating-inlet-07437.herokuapp.com/allNotes')
 			.then(res => {
@@ -30,7 +28,6 @@ function App() {
 		updateNotes(data);
 	}
 
-
 	function deleteNote(title) {
 		axios.delete('https://floating-inlet-07437.herokuapp.com/noteToDelete/' + title)
 			.then(res => res)
@@ -40,18 +37,16 @@ function App() {
 	}
 
 	let loadedApp = <Spinner />;
-	
-
 	if (loading) {
-	loadedApp = (
-					<div style={{ height: '100vh' }}>
-						<Prompt notes={notes} updater={globalUpdater} />
-							<animated.div style={props} className='allNotes'>
-								{notes.map((eachNote, index) => <Note key={index} delete={deleteNote} title={eachNote.Title} content={eachNote.Content} />)}
-							</animated.div>
-						<Footer />
-					</div>
-				);
+		loadedApp = (
+			<div style={{ height: '100vh' }}>
+				<Prompt notes={notes} updater={globalUpdater} />
+					<animated.div style={props} className='allNotes'>
+						{notes.map((eachNote, index) => <Note key={index} delete={deleteNote} title={eachNote.Title} content={eachNote.Content} />)}
+					</animated.div>
+				<Footer />
+			</div>
+		);
 	}
 
 	return (
