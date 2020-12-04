@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Lato&display=swap');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+button{
+  cursor: pointer;
+}
+
+@keyframes Opac{
+  0%{
+    opacity:0;
+  }
+
+  100%{
+    opacity:1;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header{
+  font-size: 2.5rem;
+  position:relative;
+  bottom:3vh;
+  left:2vw;
+  width:30vw;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 5px;
+}
+
+.landingContainer{
+  position:absolute;
+  top:0;
+  height:100vh;
+  width:100vw;
+  overflow: hidden;
+}
+
+.noteImg{
+  max-width:45%;
+  height:auto;
+  position:absolute;
+  bottom:3%;
+  z-index:1;
+  left:50%;
+}
+
+/* .imgAndPrompts{
+  display: flex;
+  flex-direction: row;
+} */
+
+.homeButtons{
+  position:absolute;
+  top:4vh;
+  right:0;
+  z-index: 10;
+  padding:0 10%;
+}
+
+#login, #signUp{
+  background-color: pink;
+  font-size: 2rem;
+  font-family: 'Lato', sans-serif;
+  border: none;
+  border-radius: 50px;
+  transition: color 1s;
+  outline: none;
+}
+
+#login:hover, #signUp:hover{
+  background-color: black;
+  color:white;
+}
+
+#login{
+  margin-left:1vw;
+}
+
+.cardContainer{
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  padding:5%;
+  width:30vw;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height:15vh;
+  background-color:#98acf8;
+}
+
+#infoCards{
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  position:absolute;
+  top:30%;
+  left:5%;
+}
+
+#second, #third{
+  margin-top:4vh;
+}
+
+#first, #second, #third{
+  opacity:0;
+  animation:Opac 2s;
+  animation-fill-mode: forwards;
+}
+
+#first{
+  animation-delay: 0;
+}
+
+#second{
+  animation-delay: 1s;;
+}
+
+#third{
+  animation-delay: 2s;;
+}
+
+@media only screen and (max-width:862px){
+  .cardContainer{
+    width:40vw;
+  }
+}
+
+@media only screen and (max-width:806px){
+  .landingContainer{
+    overflow-y: visible;
+  }
+
+  .noteImg{ 
+    position: absolute;
+    bottom:10%;
+  }
+
+  .header{
+    width:40vw;
+
+  }
+}
+
+@media only screen and (max-width:628px){
+  .noteImg{
+    position: absolute;
+    bottom:20%;
+  }
+
+  .header{
+    width:50vw;
+  }
+
+  .cardContainer{
+    width:50vw;
+  }
+}
+
+@media only screen and (max-width:540px){
+  .noteImg{
+    display: none;
+  }
+
+  .header{
+    position: relative;
+    left:27%;
+    width:100vw;
+  }
+
+  #infoCards{
+    position:absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top:20%;
+  }
+
+  .homeButtons{
+    position:absolute;
+    top:80%;
+    left:18%;
+    width:100vw;
+  }
+
+  .cardContainer{
+    width:70vw;
+  }
+}
+
+@media only screen and (max-width:400px){
+  .cardContainer{
+    width:85vw;
+  }
+
+  .header{
+    position:absolute;
+    left:20%;
+    top:0;
+  }
+
+  .homeButtons{
+    position: absolute;
+    left:15%;
+  }
+}
+
+.signInputs{
+  display: flex;
+  flex-direction: column;
+  width:20%;
+  margin: auto;
+}
+
+

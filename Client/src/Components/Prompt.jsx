@@ -37,7 +37,7 @@ function NotePrompt(props){
 
 	function addNote(event){
 		if (fullNote.title !== '' && fullNote.content !== ''){
-			axios.post('https://floating-inlet-07437.herokuapp.com/createOrUpdate',
+			axios.post('http://localhost:5000/createOrUpdate',
 				{
 					_id: fullNote.title,
 					title: fullNote.title,
@@ -45,7 +45,7 @@ function NotePrompt(props){
 				}
 			)
 			.then(response => {
-				axios.get('https://floating-inlet-07437.herokuapp.com/allNotes')
+				axios.get('http://localhost:5000/allNotes')
 					.then(res => props.updater(res.data))
 					.catch(err => console.log(err));
 				return response;

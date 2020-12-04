@@ -15,7 +15,7 @@ function App() {
 	const [loading, updateLoading] = useState(false);
 	
 	useEffect(() => {
-		axios.get('https://floating-inlet-07437.herokuapp.com/allNotes')
+		axios.get('http://localhost:5000/allNotes')
 			.then(res => {
 				updateLoading(true);
 				updateNotes(res.data);
@@ -29,11 +29,11 @@ function App() {
 	}
 
 	function deleteNote(title) {
-		axios.delete('https://floating-inlet-07437.herokuapp.com/noteToDelete/' + title)
+		axios.delete('http://localhost:5000/noteToDelete/' + title)
 			.then(res => res)
 			.catch(err => console.log(err));
 
-		axios.get('https://floating-inlet-07437.herokuapp.com/allNotes').then(res => updateNotes(res.data)).catch(err => console.log(err));
+		axios.get('http://localhost:5000/allNotes').then(res => updateNotes(res.data)).catch(err => console.log(err));
 	}
 
 	let loadedApp = <Spinner />;

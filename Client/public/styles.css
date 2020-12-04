@@ -1,6 +1,23 @@
 *{
 	font-family: 'Architects Daughter',cursive;
 }
+
+::-webkit-scrollbar{
+	width:1vw;
+}
+
+::-webkit-scrollbar-track{
+	background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb{
+	background:orangered;
+}
+
+.noteContainer::-webkit-scrollbar{
+	display:none;
+}
+
 .titleContainer{
 	color:white;
 	background-color:#f3c623;

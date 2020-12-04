@@ -1,4 +1,5 @@
 const Notes = require('../models/NoteModel');
+//const mongoose = require('mongoose');
 
 exports.home = (req,res) =>{
     res.send('hello');
@@ -19,7 +20,7 @@ exports.createOrUpdate = (req,res) =>{
 	const title = req.body.title.trim();
 	const content = req.body.content;
 
-	Notes.findById(id, (err, note) => {
+	Notes.Notes.findById(id, (err, note) => {
 		if (err) {
 			res.send(err);
 	    }else if (note) {
@@ -30,7 +31,7 @@ exports.createOrUpdate = (req,res) =>{
 				res.status(201).end();
 			});
 		} else {
-			Notes.create({ _id: id, Title: title, Content: content });
+			Notes.Notes.create({ _id: id, Title: title, Content: content });
 			res.status(201).end();
         }
 	});
@@ -41,18 +42,18 @@ exports.create = (req,res) =>{
 	const title = req.body.title.trim();
 	const content = req.body.content;
 
-	Notes.create({ _id: id, Title: title, Content: content});
+	Notes.Notes.create({ _id: id, Title: title, Content: content});
 	res.status(200).end();
 }
 
 exports.delete = (req,res) =>{
     let toDelete = req.params.id;
 
-	Notes.findByIdAndDelete(toDelete, (err) => {
+	Notes.Notes.findByIdAndDelete(toDelete, (err) => {
 		if (err) {
 			res.send(err);
 		} else {
-			res.status(201).end();
+			res.sendStatus(201);
         }
 	});
 }
